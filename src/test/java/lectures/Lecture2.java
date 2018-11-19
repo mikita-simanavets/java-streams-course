@@ -28,10 +28,15 @@ public class Lecture2 {
   public void rangeIteratingLists() throws Exception {
     List<Person> people = MockData.getPeople();
 
+    IntStream.range(0, people.size())
+        .forEach(i -> {
+          Person person = people.get(i);
+          System.out.println(person);
+        });
   }
 
   @Test
-  public void intStreamIterate() throws Exception {
+  public void intStreamIterate() {
     IntStream.iterate(0, operand -> operand + 1)
         .filter(number -> number % 2 == 0)
         .limit(20)
