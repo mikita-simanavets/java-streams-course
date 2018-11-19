@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableList;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import mockdata.MockData;
 import org.junit.Test;
 
@@ -53,5 +54,11 @@ public class Lecture1 {
   public void declarativeApproachUsingStreams() throws Exception {
     ImmutableList<Person> people = MockData.getPeople();
 
+    List<Person> youngPeople = people.stream()
+        .filter(person -> person.getAge() <= 10)
+        .limit(10)
+        .collect(Collectors.toList());
+
+    youngPeople.forEach(System.out::println);
   }
 }
