@@ -1,6 +1,5 @@
 package lectures;
 
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 import beans.Car;
@@ -59,6 +58,3 @@ public class Lecture5 {
     MockData.getCars().forEach(System.out::println);
   }
 }
-
-
-
