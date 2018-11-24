@@ -1,6 +1,5 @@
 package lectures;
 
-
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,16 +21,21 @@ public class Lecture10 {
   }
 
   @Test
-  public void withoutFlatMap() throws Exception {
-//    [Mariam, Alex, Ismail, John, Alesha, Andre, Susy, Ali]
+  public void withoutFlatMap() {
+    List<String> names = new ArrayList<>();
+    arrayListOfNames.forEach(names::addAll);
 
+    // [Mariam, Alex, Ismail, John, Alesha, Andre, Susy, Ali]
+    System.out.println(names);
   }
 
   @Test
-  public void withFlatMap() throws Exception {
-//   [Mariam, Alex, Ismail, John, Alesha, Andre, Susy, Ali]
+  public void withFlatMap() {
+    List<String> names = arrayListOfNames.stream()
+        .flatMap(List::stream)
+        .collect(Collectors.toList());
 
+    // [Mariam, Alex, Ismail, John, Alesha, Andre, Susy, Ali]
+    System.out.println(names);
   }
-
 }
-
